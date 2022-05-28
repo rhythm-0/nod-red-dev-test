@@ -124,7 +124,7 @@
         "y": 380,
         "wires": [
             [
-                "90df192969e452f1"
+                "709f23a7b9151a79"
             ],
             [
                 "8935a7de8f729f74"
@@ -450,32 +450,6 @@
         ]
     },
     {
-        "id": "90df192969e452f1",
-        "type": "delay",
-        "z": "b0114e2c3007869c",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 499.3332939147949,
-        "y": 324.0000104904175,
-        "wires": [
-            [
-                "824cfca94886f624",
-                "31ac38253dad56d7"
-            ]
-        ]
-    },
-    {
         "id": "80c0c990251619cb",
         "type": "moment",
         "z": "b0114e2c3007869c",
@@ -521,8 +495,34 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 659.3332939147949,
-        "y": 244.00001049041748,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "31ac38253dad56d7",
+                "824cfca94886f624"
+            ]
+        ]
+    },
+    {
+        "id": "709f23a7b9151a79",
+        "type": "delay",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 480,
+        "y": 320,
         "wires": [
             [
                 "31ac38253dad56d7",
