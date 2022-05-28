@@ -1,0 +1,533 @@
+[
+    {
+        "id": "b0114e2c3007869c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3fd23682829e58d8",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f642746b4657424a",
+        "type": "group",
+        "z": "b0114e2c3007869c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "824cfca94886f624",
+            "31ac38253dad56d7"
+        ],
+        "x": 574,
+        "y": 259,
+        "w": 152,
+        "h": 122
+    },
+    {
+        "id": "111232c3906b579c",
+        "type": "group",
+        "z": "b0114e2c3007869c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3ebc3a8ec1577c5e",
+            "a92191ec32af0cfd"
+        ],
+        "x": 1134,
+        "y": 479,
+        "w": 172,
+        "h": 122
+    },
+    {
+        "id": "824cfca94886f624",
+        "type": "wled2",
+        "z": "b0114e2c3007869c",
+        "g": "f642746b4657424a",
+        "address": "10.0.0.91",
+        "brightness": "122",
+        "delay": 0,
+        "color1": "#ffffff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "OFF",
+        "palette": "50",
+        "preset": 0,
+        "state": "off",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c77623c51331478",
+        "type": "ping",
+        "z": "b0114e2c3007869c",
+        "protocol": "Automatic",
+        "mode": "timed",
+        "name": "Note10",
+        "host": "10.0.0.130",
+        "timer": "5",
+        "inputs": 0,
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "b0d6d810be3f168c",
+                "f9f7803e930c5088"
+            ]
+        ]
+    },
+    {
+        "id": "b0d6d810be3f168c",
+        "type": "switch",
+        "z": "b0114e2c3007869c",
+        "name": "@ home?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 260,
+        "y": 380,
+        "wires": [
+            [
+                "90df192969e452f1"
+            ],
+            [
+                "8935a7de8f729f74"
+            ]
+        ]
+    },
+    {
+        "id": "31ac38253dad56d7",
+        "type": "wled2",
+        "z": "b0114e2c3007869c",
+        "g": "f642746b4657424a",
+        "address": "10.0.0.226",
+        "brightness": "122",
+        "delay": 0,
+        "color1": "#ffffff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "OFF",
+        "palette": "50",
+        "preset": 0,
+        "state": "off",
+        "x": 650,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43f71f7d718194f4",
+        "type": "switch",
+        "z": "b0114e2c3007869c",
+        "name": "11AM to 8PM",
+        "property": "hour",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "11",
+                "vt": "num",
+                "v2": "20",
+                "v2t": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 720,
+        "y": 560,
+        "wires": [
+            [
+                "fde470a84a490cef"
+            ],
+            [
+                "60e34fc37c175460"
+            ]
+        ]
+    },
+    {
+        "id": "fde470a84a490cef",
+        "type": "counter",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "init": "0",
+        "step": "1",
+        "lower": null,
+        "upper": null,
+        "mode": "increment",
+        "outputs": "1",
+        "x": 900,
+        "y": 540,
+        "wires": [
+            [
+                "9719f413b215fece"
+            ]
+        ]
+    },
+    {
+        "id": "9719f413b215fece",
+        "type": "switch",
+        "z": "b0114e2c3007869c",
+        "name": "count?",
+        "property": "count",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "10",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1050,
+        "y": 540,
+        "wires": [
+            [
+                "3ebc3a8ec1577c5e",
+                "a92191ec32af0cfd"
+            ]
+        ]
+    },
+    {
+        "id": "3ebc3a8ec1577c5e",
+        "type": "wled2",
+        "z": "b0114e2c3007869c",
+        "g": "111232c3906b579c",
+        "address": "10.0.0.91",
+        "brightness": "122",
+        "delay": 0,
+        "color1": "#ffffff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "Welcome",
+        "palette": "50",
+        "preset": "1",
+        "state": "on",
+        "x": 1220,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a92191ec32af0cfd",
+        "type": "wled2",
+        "z": "b0114e2c3007869c",
+        "g": "111232c3906b579c",
+        "address": "10.0.0.226",
+        "brightness": "122",
+        "delay": 0,
+        "color1": "#ffffff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "Welcome",
+        "palette": "50",
+        "preset": "1",
+        "state": "on",
+        "x": 1220,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9f7803e930c5088",
+        "type": "debug",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e54ed9321f977038",
+        "type": "inject",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1220,
+        "y": 460,
+        "wires": [
+            [
+                "a92191ec32af0cfd",
+                "3ebc3a8ec1577c5e"
+            ]
+        ]
+    },
+    {
+        "id": "60e34fc37c175460",
+        "type": "change",
+        "z": "b0114e2c3007869c",
+        "name": "reset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 580,
+        "wires": [
+            [
+                "fde470a84a490cef"
+            ]
+        ]
+    },
+    {
+        "id": "8935a7de8f729f74",
+        "type": "moment",
+        "z": "b0114e2c3007869c",
+        "name": "time",
+        "topic": "",
+        "input": "",
+        "inputType": "date",
+        "inTz": "America/Los_Angeles",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "ddd",
+        "locale": "en-GB",
+        "output": "day",
+        "outputType": "msg",
+        "outTz": "America/Los_Angeles",
+        "x": 269.3332939147949,
+        "y": 424.0000104904175,
+        "wires": [
+            [
+                "80c0c990251619cb"
+            ]
+        ]
+    },
+    {
+        "id": "e36c7351f3fb78e6",
+        "type": "switch",
+        "z": "b0114e2c3007869c",
+        "name": "day?",
+        "property": "day",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Mon",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Tue",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Wed",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Thu",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Fri",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Sat",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Sun",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 7,
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "43f71f7d718194f4"
+            ],
+            [
+                "43f71f7d718194f4"
+            ],
+            [
+                "43f71f7d718194f4"
+            ],
+            [
+                "43f71f7d718194f4"
+            ],
+            [
+                "43f71f7d718194f4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "90df192969e452f1",
+        "type": "delay",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 499.3332939147949,
+        "y": 324.0000104904175,
+        "wires": [
+            [
+                "824cfca94886f624",
+                "31ac38253dad56d7"
+            ]
+        ]
+    },
+    {
+        "id": "80c0c990251619cb",
+        "type": "moment",
+        "z": "b0114e2c3007869c",
+        "name": "time",
+        "topic": "",
+        "input": "",
+        "inputType": "date",
+        "inTz": "America/Los_Angeles",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "HH",
+        "locale": "en-GB",
+        "output": "hour",
+        "outputType": "msg",
+        "outTz": "America/Los_Angeles",
+        "x": 269.3332939147949,
+        "y": 464.0000104904175,
+        "wires": [
+            [
+                "e36c7351f3fb78e6"
+            ]
+        ]
+    },
+    {
+        "id": "b8fd885f1aeed3bf",
+        "type": "inject",
+        "z": "b0114e2c3007869c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 659.3332939147949,
+        "y": 244.00001049041748,
+        "wires": [
+            [
+                "31ac38253dad56d7",
+                "824cfca94886f624"
+            ]
+        ]
+    }
+]

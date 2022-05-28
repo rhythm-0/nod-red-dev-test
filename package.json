@@ -1,0 +1,12 @@
+{
+    "name": "demo_test",
+    "description": "demo test",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "demo_test.json",
+            "credentialsFile": "demo_test_cred.json"
+        }
+    }
+}
