@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "65637d2e61c76111",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "f642746b4657424a",
         "type": "group",
         "z": "b0114e2c3007869c",
@@ -33,7 +41,7 @@
             "31ac38253dad56d7"
         ],
         "x": 634,
-        "y": 259,
+        "y": 179,
         "w": 152,
         "h": 122
     },
@@ -78,7 +86,7 @@
         "preset": 0,
         "state": "off",
         "x": 710,
-        "y": 340,
+        "y": 260,
         "wires": [
             []
         ]
@@ -150,7 +158,7 @@
         "preset": 0,
         "state": "off",
         "x": 710,
-        "y": 300,
+        "y": 220,
         "wires": [
             []
         ]
@@ -528,6 +536,33 @@
                 "31ac38253dad56d7",
                 "824cfca94886f624"
             ]
+        ]
+    },
+    {
+        "id": "0a8a6a9dda3d12df",
+        "type": "inject",
+        "z": "65637d2e61c76111",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 500,
+        "y": 320,
+        "wires": [
+            []
         ]
     }
 ]
